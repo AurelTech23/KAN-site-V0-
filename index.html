@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-
 <head>
     <meta charset="utf-8">
     <title>Carte HE</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="style.css">
-
-
-
 </head>
 
-
 <body>
-
 
 <!-- ENTETE -->
 <div class="entete">
   <div class="image">
-   <a href="/" class="lien-image-accueil" title="Retour à l'accueil">
-    <img src="/src/logossfondblanc.png" alt="huiles" class="monimage2"onclick="showPage('page0')"/>
+    <!-- Correction : passage du onclick sur le lien avec preventDefault ou suppression du href='/' -->
+    <a href="#" class="lien-image-accueil" title="Retour à l'accueil" onclick="event.preventDefault(); showPage('page0')">
+      <img src="/src/logossfondblanc.png" alt="huiles" class="monimage2"/>
+    </a>
   </div>
   <div class="menu">
     <button onclick="showPage('page1')">Fournisseurs</button>
@@ -28,9 +24,9 @@
     <button onclick="showPage('page3')">Parfums</button>
   </div>
 </div>
+
 <!-- PAGE 0 — Accueil -->
 <div id="page0" class="page active">
-
   <section class="accueil-hero">
     <span class="accueil-tag">KAN — Premier parfum</span>
     <img src="/src/parfum-accueil.png" alt="Premier parfum KAN" class="accueil-parfum-img"/>
@@ -52,12 +48,10 @@
     </button>
   </section>
 
-<div class="enfin">
-  <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-</div>
-  
+  <div class="enfin">
+    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
   </div>
-</div>
+</div> <!-- Fermeture unique et propre de page0 -->
 
 <!-- PAGE 1 -->
 <div id="page1" class="page">
@@ -91,11 +85,10 @@
       </div>
     </div>
   </div>
-<div class="enfin">
-  <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+  <div class="enfin">
+    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+  </div>
 </div>
-</div>
-
 
 <!-- PAGE 2 -->
 <div id="page2" class="page">
@@ -105,7 +98,7 @@
   </div>
 
   <div class="apropos-intro reveal">
-  <span class="kanji-filigrane" onclick="playKanji()" style="cursor:pointer;">感</span>
+    <span class="kanji-filigrane" onclick="playKanji()" style="cursor:pointer;">感</span>
     <p>KAN vient du japonais 感 — <em>kan</em> — tiré du verbe <em>kanjiru</em>, « ressentir ». Ce kanji désigne ce qui se passe en nous avant les mots : une impression, une émotion, une réaction intérieure. Pas ce que l'on pense. Ce que l'on ressent.</p>
   </div>
 
@@ -147,12 +140,11 @@
   <div class="apropos-conclusion reveal">
     <p>Ces deux missions se nourrissent l'une l'autre : mieux connaître les matières premières, c'est mieux comprendre ce qu'elles peuvent exprimer. Et c'est, au fond, ce que KAN cherche : <strong>donner à ressentir quelque chose de juste.</strong></p>
   </div>
-<div class="enfin">
-  <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-</div>
-</div>
 
-<!-- SCRIPTS TOUT EN BAS - après tout le contenu -->
+  <div class="enfin">
+    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+  </div>
+</div>
 
 <!-- PAGE 3 -->
 <div id="page3" class="page">
@@ -177,22 +169,23 @@
         </div>
       </div>
     </div>
-    <!-- Ajoutez d'autres .parfum-carte ici quand vous aurez de nouveaux parfums -->
   </div>
 
- <div class="enfin">
-  <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+  <div class="enfin">
+    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+  </div>
 </div>
-</div>
+
 <div id="kanjiPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
   <img id="kanjiAnim" src="" style="width:300px; height:300px; object-fit:contain;"/>
   <p style="color:white; font-family:Poppins; margin-top:20px; font-style:italic;">感 — kan — ressentir</p>
   <button onclick="closeKanji()" style="margin-top:15px; background:transparent; border:1.5px solid white; color:white; padding:8px 20px; border-radius:20px; cursor:pointer; font-family:Poppins;">✕ Fermer</button>
 </div>
+
+<!-- SCRIPTS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="script.js"defer></script>
+<!-- Espace ajouté avant defer -->
+<script src="script.js" defer></script> 
 
 </body>
 </html>
-
-
