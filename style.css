@@ -1,0 +1,507 @@
+body{
+font-family:Poppins;
+margin:0;
+padding:0;
+}
+
+.accueil-hero {
+  min-height: 85vh;
+  background: linear-gradient(160deg, #1a1a1a 0%, #2e2e1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.accueil-tag {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #b1c04a;
+  text-transform: uppercase;
+}
+.menu button {
+  background: transparent;
+  border: 1.5px solid black;
+  color: black;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-family: Poppins;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.menu button:hover {
+  background: white;
+  color: #b1c04a;
+}
+.accueil-parfum-img {
+  height: 700px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.accueil-subtitle {
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+  font-size: 0.95em;
+  margin: 0;
+}
+
+.accueil-btn-parfum {
+  background: transparent;
+  border: 1.5px solid #f2bb16;
+  color: #f2bb16;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-family: Poppins;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.accueil-btn-parfum:hover {
+  background: #f2bb16;
+  color: #1a1a1a;
+}
+
+.accueil-scroll {
+  color: rgba(255,255,255,0.3);
+  font-size: 12px;
+  letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.accueil-divider {
+  height: 4px;
+  background: linear-gradient(90deg, #b1c04a, #f2bb16, #b1c04a);
+}
+
+.accueil-carte {
+  min-height: 50vh;
+  background: linear-gradient(160deg, #faf2b9 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.accueil-carte h2 {
+  color: #b1c04a;
+  font-size: 2em;
+  margin: 0;
+}
+
+.accueil-carte p {
+  color: #888;
+  font-style: italic;
+  max-width: 450px;
+  margin: 0;
+}
+
+.accueil-btn-carte {
+  background: #b1c04a;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-family: Poppins;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accueil-btn-carte:hover {
+  background: #b1c04a;
+}
+.entete {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #f2bb16, #faf2b9);
+}
+.lien-image-accueil {
+  display: inline-block; 
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+.monimage2{
+  height : 30px;
+  display: block;
+  cursor: pointer;
+}
+
+
+#page1, #page2, #page3 {
+  background: linear-gradient(160deg, #fff0c4 0%, #ffffff 60%);
+}
+.lien-image-accueil:hover {
+  transform: scale(1.05); 
+  opacity: 0.9;
+}
+.lien-image-accueil:active {
+  transform: scale(0.98); 
+}
+
+h1{
+  color:#b1c04a;
+}
+
+
+#monimage{
+  height: 310px;
+  width: 600px;
+}
+.image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:20px;
+}
+
+
+#map {
+  height: 400px;
+  width: 90%;
+}
+#placemap{
+  display: flex;
+  justify-content : space-around;
+  align-items:center;
+}
+
+
+.formulaire{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+
+.contact{
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+
+
+.reference{
+  font-size:25px;
+  font-weight:bold;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.contour{
+  border: solid 2px #b1c04a;
+  width:500px;
+  padding:20px;
+  background-color:#faf2b9;
+  border-radius:20px;
+}
+
+#bouton{
+  background-color:#faf2b9;
+  color:black;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+
+.boxcoutour{
+  display:none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.croix{
+  display:flex;
+  justify-content:flex-end;
+}
+
+
+#bouton2{
+  background: linear-gradient(135deg,#f2bb16, #faf2b9);
+  color: grey;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(177, 192, 74, 0.35);
+}
+
+
+.bouton2{
+  display: flex;
+  justify-content: center;
+}
+
+.enfin {
+  height: 65px;
+  background: linear-gradient(135deg, #f2bb16, #faf2b9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.monimage3 {
+  height: 400px;
+  width: auto;
+  position: relative;
+  bottom: 0;
+   opacity: 0.85;
+}
+
+.page {
+  display: none;
+}
+
+
+.page.active {
+  display: block;
+}
+
+/* PAGE 2 — À propos */
+
+.apropos-hero h1 {
+  color: #b1c04a;
+  font-size: 2.5em;
+  border-left: 5px solid #b1c04a;
+  padding-left: 15px;
+  margin-bottom: 16px;
+}
+
+.apropos-citation {
+  background: linear-gradient(135deg,#f2bb16, #faf2b9);
+  color: white;
+  font-size: 1.3em;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  padding: 24px 40px;
+  border-radius: 20px;
+  margin: 20px 0 30px 0;
+  box-shadow: 0 8px 20px rgba(46, 120, 166, 0.25);
+}
+
+.apropos-intro {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  color: #555;
+  font-size: 1.05em;
+  line-height: 1.8;
+}
+
+.apropos-cartes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+}
+
+
+.apropos-carte {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(46, 120, 166, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.apropos-carte:hover {
+  box-shadow: 0 8px 28px rgba(46, 120, 166, 0.2);
+}
+
+.apropos-carte-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+}
+
+.apropos-icone {
+  font-size: 1.5em;
+}
+
+.apropos-carte-header h2 {
+  flex: 1;
+  margin: 0;
+  color: #b1c04a;
+  font-size: 1.1em;
+}
+
+.apropos-fleche {
+  color: #b1c04a;
+  font-size: 0.85em;
+  transition: transform 0.3s ease;
+}
+
+.apropos-carte.ouverte .apropos-fleche {
+  transform: rotate(180deg);
+}
+
+.apropos-carte-contenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 24px;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.7;
+}
+
+.apropos-carte.ouverte .apropos-carte-contenu {
+  max-height: 300px;
+  padding: 0 24px 20px 24px;
+}
+
+.apropos-conclusion {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  color: #555;
+  font-size: 1em;
+  line-height: 1.8;
+  padding-bottom: 40px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PAGE 3 — Parfums */
+
+
+
+#page3 h1 {
+  color: #b1c04a;
+  font-size: 2.5em;
+  border-left: 5px solid #b1c04a;
+  padding-left: 15px;
+}
+
+.parfums-header {
+  margin-bottom: 40px;
+}
+
+.parfums-sous-titre {
+  color: #888;
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.parfums-grille {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: flex-start;
+}
+
+.parfum-carte {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(46, 120, 166, 0.12);
+  overflow: hidden;
+  width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.parfum-carte:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(46, 120, 166, 0.2);
+}
+
+.parfum-image-wrapper {
+  position: relative;
+}
+
+.parfum-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.parfum-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, #f2bb16, #faf2b9);
+  color: white;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.parfum-infos {
+  padding: 20px;
+}
+
+.parfum-infos h2 {
+  color: #b1c04a;
+  font-size: 1.3em;
+  margin: 0 0 10px 0;
+}
+
+.parfum-description {
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.parfum-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.note {
+  background: #faf2b9;
+  color: #b1c04a;
+  font-size: 0.78em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #b1c04a;
+}
