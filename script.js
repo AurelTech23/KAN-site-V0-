@@ -1,6 +1,4 @@
 
-<img src="/src/logossfondblanc.png" alt="huiles" id="monimage2" onclick="showPage('page1')"/>
-
 // Changement de page
 window.showPage = function(pageId) {
   document.querySelectorAll('.page').forEach(page => {
