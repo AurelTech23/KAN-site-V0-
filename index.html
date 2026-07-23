@@ -1,191 +1,271 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>KAN parfum</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <link rel="stylesheet" href="style.css">
-</head>
+  </head>
 
-<body>
-
-<!-- ENTETE -->
-<div class="entete">
-  <div class="image">
-    <!-- Correction : passage du onclick sur le lien avec preventDefault ou suppression du href='/' -->
-    <a href="#" class="lien-image-accueil" title="Retour à l'accueil" onclick="event.preventDefault(); showPage('page0')">
-      <img src="/src/logossfondblanc.png" alt="huiles" class="monimage2"/>
-    </a>
-  </div>
-  <div class="menu">
-    <button onclick="showPage('page1')">Fournisseurs</button>
-    <button onclick="showPage('page2')">À propos de nous</button>
-    <button onclick="showPage('page3')">Parfums</button>
-  </div>
-</div>
-
-<!-- PAGE 0 — Accueil -->
-<div id="page0" class="page active">
-  <section class="accueil-hero">
-    <span class="accueil-tag">KAN — Premier parfum</span>
-    <img src="/src/parfum-accueil.png" alt="Premier parfum KAN" class="accueil-parfum-img"/>
-    <p class="accueil-subtitle"> 100% Naturel · Sans alcool · Européen</p>
-    <button class="accueil-btn-parfum" onclick="showPage('page3')">
-      Découvrir notre premier parfum
-    </button>
-    <span class="accueil-scroll">↓ défiler</span>
-  </section>
-
-  <div class="accueil-divider"></div>
-
-  <section class="accueil-carte">
-    <span class="accueil-tag">Traçabilité</span>
-    <h2>D'où viennent nos huiles essentielles ?</h2>
-    <p>Des producteurs biologiques européens, cartographiés et sélectionnés avec soin.</p>
-    <button class="accueil-btn-carte" onclick="showPage('page1')">
-      Voir la carte des fournisseurs
-    </button>
-  </section>
-
-  <div class="enfin">
-    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-  </div>
-</div> <!-- Fermeture unique et propre de page0 -->
-
-<!-- PAGE 1 -->
-<div id="page1" class="page">
-  <div class="formulaire">
-    <h1>Cartographie des huiles essentielles européennes</h1>
-  </div>
-  <br><br>
-  <div class="image">
-    <img src="/src/huiles.png" alt="huiles" id="monimage"/>
-  </div>
-  <br/><br/>
-  <div id="placemap">
-    <div id="map"></div>
-  </div>
-  <br><br/>
-  <div class="bouton2">
-    <button id="bouton2">Demandez à être référencé</button>
-  </div>
-  <br><br/>
-  <div class="boxcoutour">
-    <div class="croix"><button id="closePopup">X</button></div>
-    <div class="contour">
-      <div class="reference"><h2>Contact</h2></div>
-      <div class="contact">
-        <br><textarea id="monexp1" placeholder="Votre Prénom Nom"></textarea><br/>
-        <br><textarea id="monexp2" placeholder="Votre nom de société"></textarea><br/>
-        <br><textarea id="monexp3" placeholder="Votre email"></textarea><br/>
-        <br><textarea id="monexp4" placeholder="Taper votre texte ici..."></textarea><br/>
-        <br><br/>
-        <input type="submit" id="bouton" value="Envoyer" />
+  <body>
+    <!-- ENTETE -->
+    <div class="entete">
+      <div class="image">
+        <a
+          href="#"
+          class="lien-image-accueil"
+          title="Retour à l'accueil"
+          onclick="event.preventDefault(); showPage('page0')"
+        >
+          <img src="/src/logossfondblanc.png" alt="huiles" class="monimage2" />
+        </a>
+      </div>
+      <div class="menu">
+        <button onclick="showPage('page1')">Fournisseurs</button>
+        <button onclick="showPage('page2')">À propos de nous</button>
+        <button onclick="showPage('page3')">Parfums</button>
       </div>
     </div>
-  </div>
-  <div class="enfin">
-    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-  </div>
-</div>
+    <!-- PAGE 0 — Accueil -->
+    <div id="page0" class="page active">
+      <section class="accueil-hero">
+        <span class="accueil-tag">KAN — Premier parfum</span>
+        <img
+          src="/src/parfum-accueil.png"
+          alt="Premier parfum KAN"
+          class="accueil-parfum-img"
+        />
+        <p class="accueil-subtitle">100% Naturel · Sans alcool · Européen</p>
+        <button class="accueil-btn-parfum" onclick="showPage('page3')">
+          Découvrir notre premier parfum
+        </button>
+        <span class="accueil-scroll">↓ défiler</span>
+      </section>
 
-<!-- PAGE 2 -->
-<div id="page2" class="page">
-  <div class="apropos-hero reveal">
-    <h1>À propos de nous</h1>
-    <div class="apropos-citation">« Ressentir l'essentiel — KAN »</div>
-  </div>
+      <div class="accueil-divider"></div>
 
-  <div class="apropos-intro reveal">
-    <span class="kanji-filigrane" onclick="playKanji()" style="cursor:pointer;">感</span>
-    <p>KAN vient du japonais 感 — <em>kan</em> — tiré du verbe <em>kanjiru</em>, « ressentir ». Ce kanji désigne ce qui se passe en nous avant les mots : une impression, une émotion, une réaction intérieure. Pas ce que l'on pense. Ce que l'on ressent.</p>
-  </div>
+      <section class="accueil-carte">
+        <span class="accueil-tag">Traçabilité</span>
+        <h2>D'où viennent nos huiles essentielles ?</h2>
+        <p>
+          Des producteurs biologiques européens, cartographiés et sélectionnés
+          avec soin.
+        </p>
+        <button class="accueil-btn-carte" onclick="showPage('page1')">
+          Voir la carte des fournisseurs
+        </button>
+      </section>
 
-  <div class="apropos-cartes">
-    <div class="apropos-carte reveal" onclick="toggleCarte(this)">
-      <div class="apropos-carte-header">
-        <span class="apropos-icone">🌿</span>
-        <h2>Notre philosophie</h2>
-        <span class="apropos-fleche">▼</span>
-      </div>
-      <div class="apropos-carte-contenu">
-        <p>KAN est né de la conviction qu'un parfum touche quelque chose d'intime et d'instinctif, et que la qualité de ce qu'il provoque dépend directement de la qualité de ce dont il est fait. Chaque formule est pensée comme une composition sensible, au plus près de la matière.</p>
+      <div class="enfin">
+        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
       </div>
     </div>
 
-    <div class="apropos-carte reveal" onclick="toggleCarte(this)">
-      <div class="apropos-carte-header">
-        <span class="apropos-icone">🗺️</span>
-        <h2>Notre mission</h2>
-        <span class="apropos-fleche">▼</span>
+    <!-- PAGE 1 -->
+    <div id="page1" class="page">
+      <div class="formulaire">
+        <h1>Cartographie des huiles essentielles européennes</h1>
       </div>
-      <div class="apropos-carte-contenu">
-        <p>Recenser et évaluer les fournisseurs européens d'huiles essentielles et d'extraits CO2 biologiques — distillateurs, producteurs, coopératives — afin de constituer une cartographie précise de ces matières premières : leurs origines, leurs profils olfactifs, leurs méthodes d'obtention.</p>
+      <br /><br />
+      <div class="image">
+        <img src="/src/huiles.png" alt="huiles" id="monimage" />
       </div>
-    </div>
-
-    <div class="apropos-carte reveal" onclick="toggleCarte(this)">
-      <div class="apropos-carte-header">
-        <span class="apropos-icone">🌸</span>
-        <h2>Nos parfums</h2>
-        <span class="apropos-fleche">▼</span>
+      <br /><br />
+      <div id="placemap">
+        <div id="map"></div>
       </div>
-      <div class="apropos-carte-contenu">
-        <p>KAN crée des parfums élaborés exclusivement à partir de matières premières naturelles et biologiques européennes. Une véritable alternative pour ceux qui souhaitent porter un parfum plus responsable et plus vert, sans compromis sur l'expérience olfactive.</p>
+      <br /><br />
+      <div class="bouton2">
+        <button id="bouton2">Demandez à être référencé</button>
       </div>
-    </div>
-  </div>
-
-  <div class="apropos-conclusion reveal">
-    <p>Ces deux missions se nourrissent l'une l'autre : mieux connaître les matières premières, c'est mieux comprendre ce qu'elles peuvent exprimer. Et c'est, au fond, ce que KAN cherche : <strong>donner à ressentir quelque chose de juste.</strong></p>
-  </div>
-
-  <div class="enfin">
-    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-  </div>
-</div>
-
-<!-- PAGE 3 -->
-<div id="page3" class="page">
-  <div class="parfums-header">
-    <h1>Nos Parfums</h1>
-    <p class="parfums-sous-titre">Élaborés exclusivement à partir de matières premières naturelles et biologiques.</p>
-  </div>
-
-  <div class="parfums-grille">
-    <div class="parfum-carte">
-      <div class="parfum-image-wrapper">
-        <img src="/src/parfum-accueil.png" alt="Premier parfum KAN" class="parfum-image"/>
-        <div class="parfum-badge">Nouveauté</div>
-      </div>
-      <div class="parfum-infos">
-        <h2>Nom du parfum</h2>
-        <p class="parfum-description">Une composition sensible autour de la lavande fine du Quercy et de la rose damascena, pour une expérience olfactive à la fois apaisante et lumineuse.</p>
-        <div class="parfum-notes">
-          <span class="note">🌿 Lavande Fine</span>
-          <span class="note">🌹 Rose Damascena</span>
-          <span class="note">🌼 Immortelle</span>
+      <br /><br />
+      <div class="boxcoutour">
+        <div class="croix"><button id="closePopup">X</button></div>
+        <div class="contour">
+          <div class="reference"><h2>Contact</h2></div>
+          <div class="contact">
+            <br /><textarea
+              id="monexp1"
+              placeholder="Votre Prénom Nom"
+            ></textarea
+            ><br />
+            <br /><textarea
+              id="monexp2"
+              placeholder="Votre nom de société"
+            ></textarea
+            ><br />
+            <br /><textarea id="monexp3" placeholder="Votre email"></textarea
+            ><br />
+            <br /><textarea
+              id="monexp4"
+              placeholder="Taper votre texte ici..."
+            ></textarea
+            ><br />
+            <br /><br />
+            <input type="submit" id="bouton" value="Envoyer" />
+          </div>
         </div>
       </div>
+      <div class="enfin">
+        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+      </div>
     </div>
-  </div>
 
-  <div class="enfin">
-    <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-  </div>
-</div>
+    <!-- PAGE 2 -->
+    <div id="page2" class="page">
+      <div class="apropos-hero reveal">
+        <h1>À propos de nous</h1>
+        <div class="apropos-citation">« Ressentir l'essentiel — KAN »</div>
+      </div>
 
-<div id="kanjiPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
-  <img id="kanjiAnim" src="" style="width:300px; height:300px; object-fit:contain;"/>
-  <p style="color:white; font-family:Poppins; margin-top:20px; font-style:italic;">感 — kan — ressentir</p>
-  <button onclick="closeKanji()" style="margin-top:15px; background:transparent; border:1.5px solid white; color:white; padding:8px 20px; border-radius:20px; cursor:pointer; font-family:Poppins;">✕ Fermer</button>
-</div>
+      <div class="apropos-intro reveal">
+        <span
+          class="kanji-filigrane"
+          onclick="playKanji()"
+          style="cursor:pointer;"
+          >感</span
+        >
+        <p>
+          KAN vient du japonais 感 — <em>kan</em> — tiré du verbe
+          <em>kanjiru</em>, « ressentir ». Ce kanji désigne ce qui se passe en
+          nous avant les mots : une impression, une émotion, une réaction
+          intérieure. Pas ce que l'on pense. Ce que l'on ressent.
+        </p>
+      </div>
 
-<!-- SCRIPTS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<!-- Espace ajouté avant defer -->
-<script src="script.js" defer></script> 
+      <div class="apropos-cartes">
+        <div class="apropos-carte reveal" onclick="toggleCarte(this)">
+          <div class="apropos-carte-header">
+            <span class="apropos-icone">🌿</span>
+            <h2>Notre philosophie</h2>
+            <span class="apropos-fleche">▼</span>
+          </div>
+          <div class="apropos-carte-contenu">
+            <p>
+              KAN est né de la conviction qu'un parfum touche quelque chose
+              d'intime et d'instinctif, et que la qualité de ce qu'il provoque
+              dépend directement de la qualité de ce dont il est fait. Chaque
+              formule est pensée comme une composition sensible, au plus près de
+              la matière.
+            </p>
+          </div>
+        </div>
 
-</body>
+        <div class="apropos-carte reveal" onclick="toggleCarte(this)">
+          <div class="apropos-carte-header">
+            <span class="apropos-icone">🗺️</span>
+            <h2>Notre mission</h2>
+            <span class="apropos-fleche">▼</span>
+          </div>
+          <div class="apropos-carte-contenu">
+            <p>
+              Recenser et évaluer les fournisseurs européens d'huiles
+              essentielles et d'extraits CO2 biologiques — distillateurs,
+              producteurs, coopératives — afin de constituer une cartographie
+              précise de ces matières premières : leurs origines, leurs profils
+              olfactifs, leurs méthodes d'obtention.
+            </p>
+          </div>
+        </div>
+
+        <div class="apropos-carte reveal" onclick="toggleCarte(this)">
+          <div class="apropos-carte-header">
+            <span class="apropos-icone">🌸</span>
+            <h2>Nos parfums</h2>
+            <span class="apropos-fleche">▼</span>
+          </div>
+          <div class="apropos-carte-contenu">
+            <p>
+              KAN crée des parfums élaborés exclusivement à partir de matières
+              premières naturelles et biologiques européennes. Une véritable
+              alternative pour ceux qui souhaitent porter un parfum plus
+              responsable et plus vert, sans compromis sur l'expérience
+              olfactive.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="apropos-conclusion reveal">
+        <p>
+          Ces deux missions se nourrissent l'une l'autre : mieux connaître les
+          matières premières, c'est mieux comprendre ce qu'elles peuvent
+          exprimer. Et c'est, au fond, ce que KAN cherche :
+          <strong>donner à ressentir quelque chose de juste.</strong>
+        </p>
+      </div>
+      <div class="enfin">
+        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div id="page3" class="page">
+      <div class="parfums-header">
+        <h1>Nos Parfums</h1>
+        <p class="parfums-sous-titre">
+          Élaborés exclusivement à partir de matières premières naturelles et
+          biologiques.
+        </p>
+      </div>
+
+      <div class="parfums-grille">
+        <div class="parfum-carte">
+          <div class="parfum-image-wrapper">
+            <img
+              src="/src/parfum-accueil.png"
+              alt="Premier parfum KAN"
+              class="parfum-image"
+            />
+            <div class="parfum-badge">Nouveauté</div>
+          </div>
+          <div class="parfum-infos">
+            <h2>Nom du parfum</h2>
+            <p class="parfum-description">
+              Une composition sensible autour de la lavande fine du Quercy et de
+              la rose damascena, pour une expérience olfactive à la fois
+              apaisante et lumineuse.
+            </p>
+            <div class="parfum-notes">
+              <span class="note">🌿 Lavande Fine</span>
+              <span class="note">🌹 Rose Damascena</span>
+              <span class="note">🌼 Immortelle</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="enfin">
+        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+      </div>
+    </div>
+    <div
+      id="kanjiPopup"
+      style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; flex-direction:column;"
+    >
+      <img
+        id="kanjiAnim"
+        src=""
+        style="width:300px; height:300px; object-fit:contain;"
+      />
+      <p
+        style="color:white; font-family:Poppins; margin-top:20px; font-style:italic;"
+      >
+        感 — kan — ressentir
+      </p>
+      <button
+        onclick="closeKanji()"
+        style="margin-top:15px; background:transparent; border:1.5px solid white; color:white; padding:8px 20px; border-radius:20px; cursor:pointer; font-family:Poppins;"
+      >
+        ✕ Fermer
+      </button>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Espace ajouté avant defer -->
+    <script src="script.js" defer></script>
+  </body>
 </html>
