@@ -39,8 +39,8 @@ padding:0;
   color: #b1c04a;
 }
 .accueil-parfum-img {
-  height: 700px;
-  width: auto;
+    max-width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 16px;
 }
