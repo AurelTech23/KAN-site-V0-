@@ -20,7 +20,7 @@
           title="Retour à l'accueil"
           onclick="event.preventDefault(); showPage('page0')"
         >
-          <img src="/src/logossfondblanc.png" alt="huiles" class="monimage2" />
+          <img src="/src/logokan.png" alt="huiles" class="monimage2" />
         </a>
       </div>
       <div class="menu">
@@ -32,7 +32,10 @@
     <!-- PAGE 0 — Accueil -->
     <div id="page0" class="page active">
       <section class="accueil-hero">
-        <span class="accueil-tag">KAN — Premier parfum</span>
+        <span class="accueil-tag-wrap">
+  <span class="accueil-tag" id="accueilTag">KAN — Embellie</span>
+  <span class="accueil-tag-underline" id="accueilTagLine"></span>
+</span>
         <img
           src="/src/parfum-accueil.png"
           alt="Premier parfum KAN"
@@ -48,6 +51,7 @@
       <div class="accueil-divider"></div>
 
       <section class="accueil-carte">
+ 
         <span class="accueil-tag">Traçabilité</span>
         <h2>D'où viennent nos huiles essentielles ?</h2>
         <p>
@@ -57,10 +61,11 @@
         <button class="accueil-btn-carte" onclick="showPage('page1')">
           Voir la carte des fournisseurs
         </button>
+          <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
       </section>
 
       <div class="enfin">
-        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+      
       </div>
     </div>
 

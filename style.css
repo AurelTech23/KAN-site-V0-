@@ -16,34 +16,114 @@ padding:0;
   padding: 60px 20px;
 }
 
+.accueil-tag-wrap {
+  position: relative;
+  display: inline-block;
+}
+
 .accueil-tag {
+  display: inline-block;
   font-size: 11px;
-  letter-spacing: 3px;
   color: #b1c04a;
   text-transform: uppercase;
+  opacity: 0;
+  letter-spacing: 1px;
+  transform: translateY(10px) scale(0.95);
+  animation: revealTag 1s ease forwards;
+}
+
+.accueil-tag-underline {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, #b1c04a, #f2bb16, #b1c04a, transparent);
+  transform: translateX(-50%);
+  animation: underlineGrow 2s ease-in-out 1s forwards, underlineFade 2s ease-in-out 3s infinite;
+}
+
+@keyframes revealTag {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    letter-spacing: 1px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 3px;
+  }
+}
+
+@keyframes underlineGrow {
+  to {
+    width: 140%;
+  }
+}
+
+@keyframes underlineFade {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 .menu button {
   background: transparent;
   border: 1.5px solid black;
   color: black;
-  padding: 5px 14px;
-  border-radius: 20px;
+  padding: 5px 11px;
+  border-radius: 12px;
   font-family: Poppins;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   transition: all 0.3s ease;
 }
+
+.accueil-carte-logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+
+
 
 .menu button:hover {
   background: white;
   color: #b1c04a;
 }
 .accueil-parfum-img {
-    max-width: 100%;
+  width: 100%;
   height: auto;
+  display: block;
   object-fit: contain;
   border-radius: 16px;
+  opacity: 0;
+  transform: scale(1.15);
+  animation: arriveeParfum 2s ease-out forwards;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.accueil-parfum-img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.03);
+}
+@keyframes arriveeParfum {
+  0% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
 
 .accueil-subtitle {
   color: rgba(255,255,255,0.5);
@@ -128,7 +208,7 @@ padding:0;
   background: #b1c04a;
 }
 .entete {
-  height: 30px;
+  height: 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -139,7 +219,7 @@ padding:0;
   transition: transform 0.2s ease, opacity 0.2s ease; 
 }
 .monimage2{
-  height : 30px;
+  height : 35px;
   display: block;
   cursor: pointer;
 }
@@ -275,7 +355,7 @@ h1{
 }
 
 .monimage3 {
-  height: 400px;
+  height: 300px;
   width: auto;
   position: relative;
   bottom: 0;

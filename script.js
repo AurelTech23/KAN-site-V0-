@@ -9,12 +9,30 @@ window.showPage = function(pageId) {
   if (pageId === 'page1') {
     setTimeout(() => map.invalidateSize(), 100);
   }
+
+  if (pageId === 'page0') {
+    replayAccueilTag();
+  }
 };
 
 // Carte Leaflet
 const initialCenter = [47.8, 13.8];
 const initialZoom = 4;
 const map = L.map('map').setView(initialCenter, initialZoom);
+
+function replayAccueilTag() {
+  const txt = document.getElementById('accueilTag');
+  const line = document.getElementById('accueilTagLine');
+  if (!txt || !line) return;
+
+  txt.style.animation = 'none';
+  line.style.animation = 'none';
+  void txt.offsetWidth;
+  txt.style.animation = 'revealTag 1s ease forwards';
+  line.style.animation = 'underlineGrow 2s ease-in-out 1s forwards, underlineFade 2s ease-in-out 3s infinite';
+}
+
+
 
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
