@@ -29,7 +29,7 @@
         <button onclick="showPage('page3')">Parfums</button>
       </div>
     </div>
-    <!-- PAGE 0 — Accueil -->
+ <!-- PAGE 0 — Accueil -->
     <div id="page0" class="page active">
       <section class="accueil-hero">
         <span class="accueil-tag-wrap">
@@ -69,55 +69,65 @@
       </div>
     </div>
 
-    <!-- PAGE 1 -->
-    <div id="page1" class="page">
-      <div class="formulaire">
-        <h1>Cartographie des huiles essentielles européennes</h1>
-      </div>
-      <br /><br />
-      <div class="image">
-        <img src="/src/huiles.png" alt="huiles" id="monimage" />
-      </div>
-      <br /><br />
-      <div id="placemap">
-        <div id="map"></div>
-      </div>
-      <br /><br />
-      <div class="bouton2">
-        <button id="bouton2">Demandez à être référencé</button>
-      </div>
-      <br /><br />
-      <div class="boxcoutour">
-        <div class="croix"><button id="closePopup">X</button></div>
-        <div class="contour">
-          <div class="reference"><h2>Contact</h2></div>
-          <div class="contact">
-            <br /><textarea
-              id="monexp1"
-              placeholder="Votre Prénom Nom"
-            ></textarea
-            ><br />
-            <br /><textarea
-              id="monexp2"
-              placeholder="Votre nom de société"
-            ></textarea
-            ><br />
-            <br /><textarea id="monexp3" placeholder="Votre email"></textarea
-            ><br />
-            <br /><textarea
-              id="monexp4"
-              placeholder="Taper votre texte ici..."
-            ></textarea
-            ><br />
-            <br /><br />
-            <input type="submit" id="bouton" value="Envoyer" />
-          </div>
-        </div>
-      </div>
-      <div class="enfin">
-        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
+   <!-- PAGE 1 -->
+ 
+<div id="page1" class="page">
+  <canvas id="petalsCanvas" class="petals-canvas"></canvas>
+  <div class="formulaire">
+    <h1>Cartographie des huiles essentielles européennes</h1>
+  </div>
+
+  <p class="page1-intro">
+    Chaque marqueur représente un producteur que nous avons sélectionné avec
+    soin pour la qualité et la traçabilité de ses huiles essentielles et
+    extraits CO2.
+  </p>
+
+  <div class="page1-stats">
+    <div class="stat">
+      <span class="stat-nombre">9</span>
+      <span class="stat-label">Producteurs</span>
+    </div>
+    <div class="stat">
+      <span class="stat-nombre">6</span>
+      <span class="stat-label">Pays</span>
+    </div>
+    <div class="stat">
+      <span class="stat-nombre">67%</span>
+      <span class="stat-label">Biologique</span>
+    </div>
+  </div>
+
+  <div class="image">
+    <img src="/src/huiles.png" alt="huiles" id="monimage" />
+  </div>
+
+  <div id="placemap">
+    <div id="map"></div>
+  </div>
+
+  <div class="bouton2">
+    <button id="bouton2">Demandez à être référencé</button>
+  </div>
+
+  <div class="boxcoutour">
+    <div class="croix"><button id="closePopup">X</button></div>
+    <div class="contour">
+      <div class="reference"><h2>Contact</h2></div>
+      <div class="contact">
+        <br /><textarea id="monexp1" placeholder="Votre Prénom Nom"></textarea><br />
+        <br /><textarea id="monexp2" placeholder="Votre nom de société"></textarea><br />
+        <br /><textarea id="monexp3" placeholder="Votre email"></textarea><br />
+        <br /><textarea id="monexp4" placeholder="Taper votre texte ici..."></textarea><br />
+        <br /><br />
+        <input type="submit" id="bouton" value="Envoyer" />
       </div>
     </div>
+  </div>
+  <div class="enfin">
+      
+      </div>
+</div>
 
     <!-- PAGE 2 -->
     <div id="page2" class="page">
@@ -185,13 +195,14 @@
           <div class="apropos-carte-contenu">
             <p>
               KAN crée des parfums élaborés exclusivement à partir de matières
-              premières naturelles et biologiques européennes. Une véritable
+              premières naturelles et européennes. Une véritable
               alternative pour ceux qui souhaitent porter un parfum plus
               responsable et plus vert, sans compromis sur l'expérience
               olfactive.
             </p>
-          </div>
+      </div>
         </div>
+
       </div>
 
       <div class="apropos-conclusion reveal">
@@ -203,7 +214,6 @@
         </p>
       </div>
       <div class="enfin">
-        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
       </div>
     </div>
 
@@ -213,7 +223,7 @@
         <h1>Nos Parfums</h1>
         <p class="parfums-sous-titre">
           Élaborés exclusivement à partir de matières premières naturelles et
-          biologiques.
+         européennes.
         </p>
       </div>
 
@@ -227,25 +237,26 @@
             />
             <div class="parfum-badge">Nouveauté</div>
           </div>
-          <div class="parfum-infos">
-            <h2>Nom du parfum</h2>
+          <div class="parfum-titre-prix">
+            <h2>Embellie</h2>
+            <h5>142€</h5>
+            </div>
             <p class="parfum-description">
               Une composition sensible autour de la lavande fine du Quercy et de
               la rose damascena, pour une expérience olfactive à la fois
               apaisante et lumineuse.
             </p>
-            <div class="parfum-notes">
-              <span class="note">🌿 Lavande Fine</span>
-              <span class="note">🌹 Rose Damascena</span>
-              <span class="note">🌼 Immortelle</span>
-            </div>
+          <div class="parfum-notes">
+  <span class="note" onclick="goToIngredient('lavande')">🌿 Lavande Fine</span>
+  <span class="note" onclick="goToIngredient('rose')">🌹 Rose Damascena</span>
+  <span class="note" onclick="goToIngredient('immortelle')">🌼 Immortelle</span>
+  <button class="parfum-btn-acheter" onclick="acheterParfum()">Acheter</button>
+</div>
           </div>
         </div>
-      </div>
-
-      <div class="enfin">
-        <img src="/src/logo-du-bas.png" alt="KAN" class="monimage3" />
-      </div>
+      
+    <div class="enfin">
+ </div>
     </div>
     <div
       id="kanjiPopup"

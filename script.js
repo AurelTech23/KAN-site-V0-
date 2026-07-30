@@ -1,4 +1,5 @@
 
+
 // Changement de page
 window.showPage = function(pageId) {
   document.querySelectorAll('.page').forEach(page => {
@@ -204,7 +205,11 @@ const BulgarieMarker = L.marker([42.51,27.47]).addTo(map).bindPopup(`
     <p style="margin:5px; font-size:12px;">🏭 Fournisseur : Florihana</p>
   </div>`);
 BulgarieMarker.on('click', function () { map.flyTo([42.743518, 25.265326], 6); });
-
+window.ingredientMarkers = {
+  lavande: franceQuercyMarker,
+  rose: BulgarieMarker,
+  immortelle: franceSudOuestMarker
+};
 
 map.on('popupclose', function () {
     map.flyTo(initialCenter, initialZoom);
@@ -306,4 +311,129 @@ window.playKanji = function() {
 
 window.closeKanji = function() {
   document.getElementById('kanjiPopup').style.display = 'none';
+};
+
+
+// ---- Effet pétales au vent (page 1) ----
+
+const petalsCanvas = document.getElementById('petalsCanvas');
+const petalsCtx = petalsCanvas.getContext('2d');
+let petals = [];
+let petalsAnimId = null;
+let petalsStartTimeout = null;
+
+function resizePetalsCanvas() {
+  petalsCanvas.width = window.innerWidth;
+  petalsCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizePetalsCanvas);
+resizePetalsCanvas();
+
+function createPetal() {
+  return {
+    x: Math.random() * petalsCanvas.width,
+    y: Math.random() * -petalsCanvas.height,
+    size: 6 + Math.random() * 8,
+    speedY: 0.6 + Math.random() * 1.2,
+    drift: Math.random() * 2 - 1,
+    angle: Math.random() * 360,
+    spin: (Math.random() - 0.5) * 2,
+    sway: Math.random() * Math.PI * 2,
+    color: Math.random() > 0.5 ? 'rgba(242,187,22,0.55)' : 'rgba(177,192,74,0.5)'
+  };
+}
+
+function initPetals() {
+  petals = [];
+  const count = Math.floor((petalsCanvas.width * petalsCanvas.height) / 100000);
+  for (let i = 0; i < count; i++) {
+    const p = createPetal();
+    p.y = Math.random() * petalsCanvas.height;
+    petals.push(p);
+  }
+}
+
+function drawPetal(p) {
+  petalsCtx.save();
+  petalsCtx.translate(p.x, p.y);
+  petalsCtx.rotate((p.angle * Math.PI) / 180);
+  petalsCtx.fillStyle = p.color;
+  petalsCtx.beginPath();
+  petalsCtx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
+  petalsCtx.fill();
+  petalsCtx.restore();
+}
+
+function animatePetals() {
+  petalsCtx.clearRect(0, 0, petalsCanvas.width, petalsCanvas.height);
+
+  petals.forEach(p => {
+    p.sway += 0.02;
+    p.y += p.speedY;
+    p.x += p.drift + Math.sin(p.sway) * 0.6;
+    p.angle += p.spin;
+
+    if (p.y > petalsCanvas.height + 20) {
+      p.y = -20;
+      p.x = Math.random() * petalsCanvas.width;
+    }
+    if (p.x > petalsCanvas.width + 20) p.x = -20;
+    if (p.x < -20) p.x = petalsCanvas.width + 20;
+
+    drawPetal(p);
+  });
+
+  petalsAnimId = requestAnimationFrame(animatePetals);
+}
+
+
+function startPetals() {
+  if (petalsAnimId || petalsStartTimeout) return; // déjà en cours ou déjà programmé
+  petalsStartTimeout = setTimeout(() => {
+    resizePetalsCanvas();
+    initPetals();
+    animatePetals();
+    petalsStartTimeout = null;
+  }, 200);
+}
+function stopPetals() {
+  if (petalsAnimId) {
+    cancelAnimationFrame(petalsAnimId);
+    petalsAnimId = null;
+    petalsCtx.clearRect(0, 0, petalsCanvas.width, petalsCanvas.height);
+  }
+}
+window.showPage = function(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  document.getElementById(pageId).classList.add('active');
+
+  if (pageId === 'page1') {
+    setTimeout(() => map.invalidateSize(), 100);
+    startPetals();
+  } else {
+    stopPetals();
+  }
+
+  if (pageId === 'page0') {
+    replayAccueilTag();
+  }
+};
+
+// Navigue vers la carte et zoome sur l'ingrédient choisi
+window.goToIngredient = function(key) {
+  const marker = window.ingredientMarkers[key];
+  if (!marker) return;
+
+  showPage('page1');
+  setTimeout(() => {
+    map.invalidateSize();
+    map.flyTo(marker.getLatLng(), 7);
+    marker.openPopup();
+  }, 300);
+};
+
+window.acheterParfum = function() {
+  alert("Malheureusement nous n'avons pas encore de stock disponible, n'hésitez pas à nous contacter pour plus d'informations.");
 };
